@@ -17,6 +17,15 @@ debug = DebugToolbarExtension(app)
 connect_db(app)
 
 #****************************
+#Frontend Routes
+#****************************
+
+@app.route('/')
+def home_page():
+    return render_template('home.html')
+
+
+#****************************
 #RESTful JSON API 
 #****************************
 
