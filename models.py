@@ -26,4 +26,14 @@ class Cupcake(db.Model):
     def __repr__(self):
         c = self
         return f"<Cupcake id={c.id}, Flavor={c.flavor}, Size={c.size}, Rating={c.rating}>"
+    
+    def serialize(self):
+        """Returns a dict representation of a cupcake that can then be turned in JSON"""
+        return {
+            'id': self.id,
+            'flavor': self.flavor,
+            'size': self.size,
+            'rating': self.rating,
+            'image': self.image
+        }
 
