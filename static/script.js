@@ -2,9 +2,7 @@ $('.cupcake-btn').click(getCupcakes)
 
 async function getCupcakes() {
     const res = await axios.get('api/cupcakes')
-    console.log(res)
     for (cupcake of res.data.cupcakes) {
-        console.log(cupcake.flavor, cupcake.image, cupcake.rating, cupcake.size)
         const $item =  `
         <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="${cupcake.image}" alt="Card image cap">

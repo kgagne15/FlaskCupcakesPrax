@@ -28,7 +28,7 @@ class Cupcake(db.Model):
         return f"<Cupcake id={c.id}, Flavor={c.flavor}, Size={c.size}, Rating={c.rating}>"
     
     def serialize(self):
-        """Returns a dict representation of a cupcake that can then be turned in JSON"""
+        """Returns a dict representation of a cupcake that can then be turned into JSON"""
         return {
             'id': self.id,
             'flavor': self.flavor,

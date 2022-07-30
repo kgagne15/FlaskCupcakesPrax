@@ -1,5 +1,5 @@
 """Flask app for Cupcakes"""
-from crypt import methods
+# from crypt import methods
 from flask import Flask, request, render_template,  redirect, flash, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db,  connect_db, Cupcake
@@ -44,8 +44,9 @@ def get_cupcake(id):
 @app.route('/api/cupcakes', methods=["POST"])
 def create_cupcake():
     """Create a new cupcake and add to database"""
+    #looked at solution for how to get the default image if nothing is entered
     new_cupcake = Cupcake(flavor=request.json["flavor"], size=request.json["size"], 
-                rating=request.json["rating"], image=request.json["image"])
+                rating=request.json["rating"], image=request.json["image"] or None)
     db.session.add(new_cupcake)
     db.session.commit()
     response_json = jsonify(cupcake=new_cupcake.serialize())
